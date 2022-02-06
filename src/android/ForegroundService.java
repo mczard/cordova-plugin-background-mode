@@ -126,7 +126,7 @@ public class ForegroundService extends Service {
     private void keepAwake()
     {
         JSONObject settings = BackgroundMode.getSettings();
-        boolean isSilent    = settings.optBoolean("silent", false);
+        boolean isSilent    = true;
 
         if (!isSilent) {
             startForeground(NOTIFICATION_ID, makeNotification());
@@ -238,7 +238,7 @@ public class ForegroundService extends Service {
      */
     protected void updateNotification (JSONObject settings)
     {
-        boolean isSilent = settings.optBoolean("silent", false);
+        boolean isSilent = true;
 
         if (isSilent) {
             stopForeground(true);
